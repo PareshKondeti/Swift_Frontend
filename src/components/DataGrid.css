@@ -1,0 +1,127 @@
+.data-grid-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.data-grid {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 2fr;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  min-width: 800px;
+}
+
+.header-cell {
+  padding: 16px;
+  text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-cell:last-child {
+  border-right: none;
+}
+
+.header-cell.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-cell.sortable:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-cell.sort-asc,
+.header-cell.sort-desc {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 2fr;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+  min-width: 800px;
+}
+
+.grid-row:hover {
+  background: #f8fafc;
+}
+
+.grid-row:last-child {
+  border-bottom: none;
+}
+
+.grid-cell {
+  padding: 16px;
+  text-align: left;
+  border-right: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  color: #334155;
+}
+
+.grid-cell:last-child {
+  border-right: none;
+}
+
+.comment-cell {
+  align-items: flex-start;
+}
+
+.comment-text {
+  line-height: 1.5;
+  color: #64748b;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .data-grid-container {
+    margin: 0 -15px 20px -15px;
+    border-radius: 0;
+  }
+  
+  .grid-header {
+    grid-template-columns: 80px 1fr 1fr 1.5fr;
+    min-width: 600px;
+  }
+  
+  .grid-row {
+    grid-template-columns: 80px 1fr 1fr 1.5fr;
+    min-width: 600px;
+  }
+  
+  .header-cell,
+  .grid-cell {
+    padding: 12px 8px;
+    font-size: 0.9rem;
+  }
+  
+  .comment-text {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
+}
